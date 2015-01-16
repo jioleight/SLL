@@ -55,7 +55,7 @@ void Append(struct pb **new, struct pb **start, struct pb *tmp)
 	while(!s)
 	{	clrscr();
 		*new=(struct pb *)malloc(sizeof(struct pb));
-		printf("***Add Contact***\n");
+		printf("***Add New Contact***\n");
 		printf("\nFirst Name: "); gets((*new)->fn);
 		printf("Middle Name: "); gets((*new)->mn);
 		printf("Last Name: "); gets((*new)->ln);
@@ -85,7 +85,7 @@ void Browse( struct pb *start, struct pb *tmp)
 		printf("\n\n--------------------\n");
 		if(k=='1')
 		{
-			printf("Enter name/number of the contact you want to search: ");
+			printf("Enter name or number of the contact to search: ");
 			search(&tmp,NULL);
 			if(tmp==NULL) 
 				printf("\nnot found...");
@@ -110,7 +110,7 @@ void Browse( struct pb *start, struct pb *tmp)
 		if(k=='4') exit(0);
 		if(!s)
 		{
-			printf("\nagain?(y/n) " );
+			printf("\ntry again?(y/n) " );
 			do k=getch(); while(k!='y'&&k!='Y'&&k!='n'&&k!='N');
 			if(k=='n'||k=='N') s=1;
 		}
@@ -124,7 +124,7 @@ void Change(struct pb *start, struct pb *tmp)
 	{
 		clrscr(); tmp=start; srch=NULL;
 		printf("***Edit Contact***\n");
-		printf("\nEnter name/number of the contact you want to edit: ");
+		printf("\nEnter name or number of the contact to edit: ");
 		do
 		{
 			if(srch!=NULL) tmp=tmp->n;
@@ -133,7 +133,7 @@ void Change(struct pb *start, struct pb *tmp)
 			if(tmp!=NULL)
 			{
 				printf("\n\nEdit:\n%s %s %s\n%s\n",tmp->fn,tmp->mn,tmp->ln,tmp->num);
-				printf("\nis this the account you want to edit?(y/n) ");
+				printf("\nare you sure you want to edit?(y/n) ");
 				do k=getch(); while(k!='y'&&k!='Y'&&k!='n'&&k!='N');
 				if(k=='n'||k=='N') k='n'; 
 			}
@@ -164,7 +164,7 @@ void Change(struct pb *start, struct pb *tmp)
 		else printf("\nnot found...");
 		if(!s)
 		{
-			printf("\nagain?(y/n) " );
+			printf("\ntry again?(y/n) " );
 			do k=getch(); while(k!='y'&&k!='Y'&&k!='n'&&k!='N');
 			if(k=='n'||k=='N') s=1;
 		}
@@ -186,7 +186,7 @@ void Delete(struct pb *start, struct pb *tmp)
 		do k=getche(); while(k!='1'&&k!='2'&&k!='3'&&k!='4');
 		if(k=='1')
 		{
-			printf("\nEnter name/number of the contact you want to delete: ");
+			printf("\nEnter name or number of the contact to delete: ");
 			search(&tmp,NULL);
 		}
 	}
@@ -224,7 +224,7 @@ main()
 		while(k!='5')
 		{
 			clrscr(); tmp=start;
-			printf("**Phonebook**\n");
+			printf("**Phonebook (SLL)**\n");
 			printf("\n[1] Add Contact");
 			printf("\n[2] Browse Contacts");
 			printf("\n[3] Edit Contact");
